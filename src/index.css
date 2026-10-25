@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 245 247 250;
+    --foreground: 29 41 57;
+    --card: 255 255 255;
+    --primary: 21 54 92;
+    --primary-foreground: 255 255 255;
+    --secondary: 36 90 145;
+    --secondary-foreground: 255 255 255;
+    --muted: 238 242 247;
+    --muted-foreground: 102 112 133;
+    --accent: 238 242 247;
+    --border: 220 227 235;
+    --success: 33 134 83;
+    --warning: 217 148 22;
+    --critical: 199 62 58;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold tracking-tight text-foreground;
+  }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+}
+
+@layer components {
+  .card-surface {
+    @apply rounded-lg border border-border bg-card shadow-card;
+  }
+
+  .data-label {
+    @apply text-2xs font-semibold uppercase tracking-wide text-muted-foreground;
+  }
+
+  .field-value {
+    @apply text-sm text-foreground;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--border));
+    border-radius: 999px;
+  }
+}
